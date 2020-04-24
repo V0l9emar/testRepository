@@ -24,6 +24,7 @@ let newArr2 = [];
 for(i=0; i<arr.length; i++){
   newArr2.push(arr[i].toUpperCase());
 }console.log(newArr2);
+console.log(newArr);
 //#######zadacah vipolnena pravilno no mnogo raznix povtorov#######//
 
 
