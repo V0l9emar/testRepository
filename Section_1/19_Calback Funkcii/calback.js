@@ -138,8 +138,89 @@ function createGenerator(prefix) {
     return prefix + index.toString();
   };
 }
-let generateNewID = createGenerator("Вызов номер: ");
+let generateNewID = createGenerator("Вызов номер: "); // (prefix) === "Vizov nomer:"
 console.log(generateNewID());
 console.log(generateNewID());
 console.log(generateNewID());
-console.log(generateNewID());
+
+//########################### Dekoratori ##################################//
+function once(fn) {
+  let returnValue;
+  let canRun = true;
+  return function runOnce() {
+    if (canRun) {
+      returnValue = fn.apply(this, arguments);
+      canRun = false;
+    }
+    return returnValue;
+  };
+}
+let processonce = once(process);
+processonce();
+
+//##################### primer s Array.prototype.map #######################//
+const birthYear = [1975, 1997, 2002, 1995, 1985];
+const ages = birthYear.map((year) => 2020 - year);
+console.log(ages);
+
+//#################### primer s Array.prototype.filter ####################//
+// Bez funkcii vissheqo poradka:
+let persons = [
+  { name: "Peter", age: 16 },
+  { name: "Mark", age: 18 },
+  { name: "John", age: 27 },
+  { name: "Jane", age: 14 },
+  { name: "Tony", age: 24 },
+];
+const fullAge = [];
+for (let i = 0; i < persons.length; i++) {
+  if (persons[i].age >= 18) {
+    fullAge.push(persons[i]);
+  }
+}
+console.log(fullAge);
+
+//S funkciyey vissheqo poradka:
+let personss = [
+  { name: "Peter", age: 16 },
+  { name: "Mark", age: 18 },
+  { name: "John", age: 27 },
+  { name: "Jane", age: 14 },
+  { name: "Tony", age: 24 },
+];
+const fullAges = personss.filter((person) => person.age >= 18);
+console.log(fullAges);
+
+//#################### primer s Array.prototype.reduce ####################//
+//Допустим, нам нужно суммировать массив чисел:
+//С функцией высшего порядка reduce:
+let arrr = [5, 7, 1, 8, 4];
+let sum = arrr.reduce(function (accumulator, currentValue) {
+  return accumulator + currentValue;
+});
+console.log(sum);
+
+//Без функции высшего порядка:
+let barr = [5, 7, 1, 8, 4];
+let summ = 0;
+for (let i = 0; i < barr.length; i++) {
+  summ += barr[i];
+}
+console.log(summ);
+
+//######## primer sozdaniya sobstvennoy funkcii vissheqo poradka ##########//
+//Допустим, у нас есть строчный массив, и мы хотим конвертировать его в массив integer, в котором каждый элемент представляет длину строки из оригинального массива.
+let strArray = ["JavaScript", "Python", "PHP", "Java", "C#"];
+function mapForEach(arr, fn) {
+  let newArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArray.push(fn(arr[i]));
+  }
+  return newArray;
+}
+let lenArray = mapForEach(strArray, function (item) {
+  return item.length;
+});
+console.log(lenArray);
+/*В примере выше, мы создали функцию высшего порядка mapForEach , которая принимает массив и callback-функцию fn. Эта функция циклично перебирает данный массив и вызывает callback-функцию fn внутри функции newArray.push для каждой итерации.
+Callback-функция fn принимает текущий элемент массива и возвращает длину текущего элемента, который хранится в newArray . После завершения цикла For, newArray возвращает значение в lenArray .*/
