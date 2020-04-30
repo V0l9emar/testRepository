@@ -224,3 +224,29 @@ let lenArray = mapForEach(strArray, function (item) {
 console.log(lenArray);
 /*В примере выше, мы создали функцию высшего порядка mapForEach , которая принимает массив и callback-функцию fn. Эта функция циклично перебирает данный массив и вызывает callback-функцию fn внутри функции newArray.push для каждой итерации.
 Callback-функция fn принимает текущий элемент массива и возвращает длину текущего элемента, который хранится в newArray . После завершения цикла For, newArray возвращает значение в lenArray .*/
+
+
+function processString(string, handler) {
+  let newString = "";
+
+  for (let i = 0; i < string.length; i++) {
+      newString += handler(string[i]);
+  }
+
+  return newString;
+}
+processString("Hello, easycode!",
+function (symbol) {
+  return symbol.toUpperCase();
+});
+processString("Hello, easycode!",
+function (symbol) {
+  return symbol + "_";
+});
+processString("Hello, easycode!",
+function (symbol) {
+  return symbol.charCodeAt();
+});
+
+
+
