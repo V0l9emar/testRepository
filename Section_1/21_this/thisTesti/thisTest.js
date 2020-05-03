@@ -1,19 +1,36 @@
 /* 
 1.Создать объект, который описывает ширину и высоту
 прямоугольника, а также может посчитать площадь фигуры:
-const rectangle = {width:..., height:..., getSquare:...};
+const rectangle = {width:..., height:..., getSquare:...};**/
+function getSquare() {
+  return this.width + this.height;
+}
+const rectangle = {
+  width: 5, 
+  height: 2, 
+  getSquare: getSquare,
+}
+getSquare();
 
-
-2.Создать объект, у которого будет цена товара и его скидка, а также
-два метода: для получения цены и для расчета цены с учетом скидки:
+/*2.Создать объект, у которого будет цена товара и его скидка, а также
+два метода: для получения цены и для расчета цены с учетом скидки:*/
+function getPrice(){
+  console.log(this.price);
+  return this;
+}
+function getPriceWithDiscount(){
+  console.log()
+}
 const price = {
     price: 10,
     discount: '15%',
-... };
+    getPrice,
+    getPriceWithDiscount,
+};
 price.getPrice(); // 10
 price.getPriceWithDiscount(); // 8.5
 
-3. Создать объект, у которого будет поле высота и метод “увеличить
+/*3. Создать объект, у которого будет поле высота и метод “увеличить
 высоту на один”. Метод должен возвращать новую высоту:
 object.height = 10;
 object.inc(); // придумать свое название для метода
