@@ -45,7 +45,7 @@ let users = [
     index: 3,
     isActive: true,
     balance: 2621.84,
-    age: 25,
+    age: 28,
     name: "Austin Benton",
     gender: "male",
     company: "ZILIDIUM",
