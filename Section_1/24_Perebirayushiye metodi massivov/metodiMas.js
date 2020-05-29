@@ -54,8 +54,21 @@ let users = [
     registered: "2016-08-02T10:08:24 -03:00",
   },
   {
-    _id: "5cdce6ced81fe99596d9cef5",
+    _id: "5cdce6cead1b8a7a4dc8cb3d",
     index: 4,
+    isActive: false,
+    balance: 32621.84,
+    age: 19,
+    name: "Austin Cupidon",
+    gender: "male",
+    company: "Cventin",
+    email: "austincupidon@cventin.com",
+    phone: "+1 (912) 735-2267",
+    registered: "2017-08-02T13:16:24 -03:00",
+  },
+  {
+    _id: "5cdce6ced81fe99596d9cef5",
+    index: 5,
     isActive: true,
     balance: 1297.31,
     age: 37,
@@ -68,7 +81,7 @@ let users = [
   },
   {
     _id: "5cdce6ce6c3ae6c4d6f39e88",
-    index: 5,
+    index: 6,
     isActive: false,
     balance: 2165.49,
     age: 20,
@@ -81,9 +94,9 @@ let users = [
   },
 ];
 //forEach - prostoy metod perebora massiva, nichego ne vozvrashaet, vse metodi v kschestve argumenta prinemayut callback. Nekaya zamena cikla for
-users.forEach((user, i, arr) => {
+/*users.forEach((user, i, arr) => {
   //console.log(user, i, arr);
-});
+});*/
 
 //#################################################
 //filter - filtruyet
@@ -103,7 +116,7 @@ console.log(usersNA);
 
 //####################################################
 //reduce - pomogaet razvorachivat massiv, pomogayet formirovat strukturi. Naprimer iz massiva sdelat objekt. Pozvolaet probrazovat massiv v druguyu sushnost.., ili chto-to poschitat
-let totalBalance = users.reduce((acc, user) => (acc += user.balance), 0); //0 eto startovoe znacheniye v kot nachinayem plusovat balance; acc eto accelerator kor=toriy prinemaet startovoe znacheniye i xranit danniye predidushey iteracii
+let totalBalance = users.reduce((acc, user) => (acc += user.balance), 0); //0 eto startovoe znacheniye v kot nachinayem plusovat balance; acc eto accelerator kotoriy prinemaet startovoe znacheniye i xranit danniye predidushey iteracii
 console.log(totalBalance);
 
 let userObj = users.reduce((acc, user) => {
@@ -123,7 +136,7 @@ console.log(isAll18);
 
 //#############################################################
 //find - dla poiska elementa v massive.
-let user = users.find((user) => user.name == "Austin Benton");
+let user = users.find((user) => user.name == "Austin Cupidon");
 console.log(user);
 
 //#######################################################
