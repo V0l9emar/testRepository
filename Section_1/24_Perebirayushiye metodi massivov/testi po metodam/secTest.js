@@ -4,22 +4,25 @@
 [{digit: 1, odd: true}, {digit: 2, odd: false}, {digit: 3, odd: true}...]*/
 
 let arr = [1, 2, 3, 5, 8, 9, 10];
-
-console.log();
+let newArr = arr.map((num) => ({
+  value: num,
+  odd: Boolean(num % 2),
+}));
+console.log(newArr);
 
 /*
 2.Проверить, содержит ли массив [12, 4, 50, 1, 0, 18, 40] элементы, равные нулю. Если да - вернуть true.*/
 
 let zeroInArr = [12, 4, 50, 1, 0, 18, 40];
-
-console.log();
+let zero = zeroInArr.some((num) => num === 40);
+console.log(zero);
 
 /*
 3.Проверить, все элементы массива имеют длину более 3х символов ['yes', 'hello', 'no', 'easycode', 'what']. Если да - вернуть true*/
 
 let arrLng = ["yes", "hello", "no", "easycode", "what"];
-
-console.log();
+let leng = arrLng.every((str) => str.length >= 3);
+console.log(leng);
 
 /*
 4.Дан массив объектов, где каждый объект содержит информацию о букве и месте её положения в строке {буква: “a”, позиция_в_предложении: 1}:
@@ -50,15 +53,21 @@ let arrObj = [
   { char: "!", index: 14 },
   { char: "e", index: 7 },
 ];
-function getStr(arr) {}
-console.log();
+function getStr(arr) {
+  let clone = arr.slice();
+  return clone
+    .sort((prev, next) => prev.index - next.index)
+    .reduce((acc, { char }) => acc + char, "");
+}
+console.log(getStr(arrObj));
 
 /* Resheniye cherez : sort()
  5.Отсортируйте массив массивов так, чтобы вначале располагались наименьшие массивы (размер массива определяется его длиной): [  [14, 45],  [1],  ['a', 'c', 'd']  ] → [ [1], [14, 45], ['a', 'c', 'd'] ]
 */
 
 let arrArr = [[14, 45], [1], ["a", "c", "d"]];
-console.log();
+let arrL = arrArr.sort((prev, next) => prev.length - next.length);
+console.log(arrL);
 
 /*
 6.Есть массив объектов:
@@ -76,11 +85,11 @@ let cpuObj = [
   { cpu: "intel", info: { cores: 2, сache: 3 } },
   { cpu: "intel", info: { cores: 8, сache: 4 } },
   { cpu: "amd", info: { cores: 1, сache: 1 } },
-  { cpu: "intel", info: { cores: 3, сache: 2 } },
+  { cpu: "intel", info: { cores: 3, сache: 5 } },
   { cpu: "amd", info: { cores: 4, сache: 2 } },
 ];
-
-console.log();
+let core = cpuObj.sort((prev, next) => prev.info.cores - next.info.cores);
+console.log(core);
 /*
 7. Создать функцию, которая будет принимать массив продуктов и две цены. Функция должна вернуть все продукты, цена которых находится в указанном диапазоне, и сортировать от дешевых к дорогим:
 
@@ -102,5 +111,9 @@ let products = [
   { title: "prod7", price: 19 },
   { title: "prod8", price: 63 },
 ];
-function filterProducts(prod, min, max) {}
-console.log(filterProducts(products, 15, 30));
+function filterProducts(prod, min, max) {
+  return prod
+    .filter(({ price }) => price >= min && price <= max)
+    .sort((prev, next) => prev.price - next.price);
+}
+console.log(filterProducts(products, 5, 20));
