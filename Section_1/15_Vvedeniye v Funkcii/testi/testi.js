@@ -1,18 +1,21 @@
 // 1.Создать функцию multiply, которая будет принимать любое количество чисел и возвращать их произведение: multiply(1,2,3) = 6 (1*2*3)
 //Если нет ни одного аргумента, вернуть ноль: multiply() // 0
 
-function multiply(){
+function multiply() {
   let x = 1;
-  if(arguments.length == 0) return 0;
-  for(let i=0; i<arguments.length; i++) x *= arguments[i];
+  if (arguments.length === 0) return 0;
+  for (let i = 0; i < arguments.length; i++) {
+    if (!isNaN(arguments[i])) {
+      //proverka esli ne chislo
+      x *= arguments[i];
+    }
+  }
   return x;
 }
-console.log(multiply(1,2,3,4));
-
-
+console.log(multiply(1, 2, 3, 4));
 
 // 2.Создать функцию, которая принимает строку и возвращает строку-перевертыш: reverseString(‘test’) // “tset”.
-function reverseString(str){
+function reverseString(str) {
   return str.split("").reverse().join("");
 }
 console.log(reverseString("test"));
@@ -35,18 +38,18 @@ console.log(reverseString(null))
 console.log(reverseString(undefined))
 console.log(reverseString())
 */
-  
 
-// 3.Создать функцию, которая в качестве аргумента принимает строку из букв и возвращает строку, где каждый символ разделен пробелом и заменен на юникод-значение символа: 
-//getCodeStringFromText(‘hello’) // “104 101 108 108 111” 
-//подсказка: для получения кода используйте специальный метод 
-function stringToCode(str){
+// 3.Создать функцию, которая в качестве аргумента принимает строку из букв и возвращает строку, где каждый символ разделен пробелом и заменен на юникод-значение символа:
+//getCodeStringFromText(‘hello’) // “104 101 108 108 111”
+//подсказка: для получения кода используйте специальный метод
+function stringToCode(str) {
   let output = "";
-  for(let i = 0; i < str.length; i++){
-      output += str.charCodeAt(i) + " ";
-  };
+  for (let i = 0; i < str.length; i++) {
+    output += str.charCodeAt(i) + " ";
+  }
   return output.trim();
-};console.log(stringToCode("Voldemar"));
+}
+console.log(stringToCode("Voldemar"));
 
 /*
 function getCodeStringFromText(str) {
@@ -84,3 +87,12 @@ console.log(getCodeStringFromText(1234))
 
 console.log(guessTheNumber(21));
 */
+function gameCheckNumber(num) {
+  if (num < 1 || num > 10) {
+    console.log("Funkciya doljna bit ot 1 do 10");
+    return;
+  }
+  const random = Math.ceil(Math.random() * 10);
+  random === num ? console.log('Pobeda!') : console.log(`Vi ne ugadali, Vashe chislo - ${num}, a vipalo chislo- ${random}`);
+}
+gameCheckNumber(5);

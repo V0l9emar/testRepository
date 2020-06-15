@@ -21,8 +21,8 @@ multiply(2); // 4 (2 * 2)
 multiply(1); // 4 (4 * 1)
 multiply(3); // 12 (4 * 3)
 multiply(10); // 120 (12 * 10)*/
-function multiplyMaker(num1 = 2) {
-  return function (num2 = 1) {
+function multiplyMaker(num1) {
+  return function (num2) {
     return (num1 *= num2);
   };
 }

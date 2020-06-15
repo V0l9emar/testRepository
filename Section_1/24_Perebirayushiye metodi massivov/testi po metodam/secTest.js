@@ -54,12 +54,24 @@ let arrObj = [
   { char: "e", index: 7 },
 ];
 function getStr(arr) {
-  let clone = arr.slice();
+  let clone = arr.slice(); // vozvrashaet kopiyu massiva
   return clone
-    .sort((prev, next) => prev.index - next.index)
+    .sort((prev, next) => prev.index - next.index)// sverayem po indexu
     .reduce((acc, { char }) => acc + char, "");
 }
 console.log(getStr(arrObj));
+
+/*
+function getStr(arr) {
+  const copyArr = arr.slice(); // vozvrashaet kopiyu massiva
+  const sortedArr = copyArr.sort((prev, next) => prev.index - next.index);
+  const strFromArr = sortedArr.reduce((acc, curent) => {
+    return (acc += curent.char);
+  }, '');
+  return strFromArr;
+}
+console.log(getStr(arrObj));
+*/
 
 /* Resheniye cherez : sort()
  5.Отсортируйте массив массивов так, чтобы вначале располагались наименьшие массивы (размер массива определяется его длиной): [  [14, 45],  [1],  ['a', 'c', 'd']  ] → [ [1], [14, 45], ['a', 'c', 'd'] ]
