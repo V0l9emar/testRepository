@@ -13,6 +13,3 @@ console.log(name);
 name = "Vladimir";
 console.log(name);
 
-let f = function g(){ return 23; };
-
-console.log(typeof g())
