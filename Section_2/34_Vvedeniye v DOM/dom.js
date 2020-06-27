@@ -31,3 +31,30 @@ console.log(window)
 console.log(navigator)
 console.log(location)
 //Eto okrujeniya i te interfaci kotoriye dayut vozmojnost nam iz JS vzaimodeystvovat s etimi chastami nasheqo browsera
+
+/*element.closest(‘selector’) - ищет предка (родителя) в соответствии с переданным
+селектором. Синтаксис селектора аналогичен CSS. В случае совпадения вернет
+элемент, если ничего не найдено - null.
+
+<div>
+  <p>
+    Other Text
+    <span class="mark">info</span>
+   </p>
+</div>
+document.querySelector('.mark').closest('div');
+// найдёт первый элемент с классом mark и получит ближайший обрамляющий тег div
+
+//////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+element.matches(‘selector’) - проверяет, соответствует ли элемент данному селектору.
+
+<div class="one">One</div>
+<div class="box">Two</div>
+<div>Three</div>
+var divs = document.getElementsByTagName('div');
+for (var index = 0, max = divs.length; index < max; index++) {
+    if (divs[index].matches('box')) {
+       console.log(divs[index]);
+    }
+} // выведет в консоль все дивы с классом box*/

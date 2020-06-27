@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="application/javascript">
+      function setBodyAttr(attr, value) {
+        if (document.body) eval("document.body." + attr + '="' + value + '"');
+        else notSupported();
+      }
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="margin: 0.5in; height: 400;">
+      <p>
+        <b><tt>text</tt></b>
+      </p>
+      <form>
+        <select onChange="setBodyAttr('text', this.options[this.selectedIndex].value);">
+          <option value="black">black </option>
+          <option value="darkblue">darkblue </option>
+        </select>
+        <p>
+          <b><tt>bgColor</tt></b>
+        </p>
+        <select onChange="setBodyAttr('bgColor', this.options[this.selectedIndex].value);" >
+          <option value="white">white </option>
+          <option value="lightgrey">gray </option>
+          <option value="yellow">yellow </option>
+        </select>
+        <p>
+          <b><tt>link</tt></b>
+        </p>
+        <select onChange="setBodyAttr('link', this.options[this.selectedIndex].value);">
+          <option value="blue">blue</option>
+          <option value="green">green</option>
+          <option value="red">red</option>
+        </select>
+        <small>
+          <a href="http://www.brownhen.com/dom_api_top.html" id="sample">(sample link)</a>
+        </small>
+        <br />
+      </form>
+      <form>
+        <input type="button" value="version" onclick="ver()" />
+      </form>
+    </div>
+  </body>
+</html>
