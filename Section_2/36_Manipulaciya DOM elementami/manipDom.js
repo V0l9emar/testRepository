@@ -36,7 +36,7 @@ const colors = [
   "violet",
 ];
 colors.forEach((color) => {//                     itearciya
-  const item = document.createElement("div");//   sizdniye div dla kajdoqo elementa massiva
+  const item = document.createElement("div");//   sozdniye div dla kajdoqo elementa massiva
   item.classList.add(`bg-${color}`);//            dobavili class
   item.style.background = color;//                dobavili background divam po ukazanim cvetam
   item.textContent = color;//                     dobavleniye texta v div

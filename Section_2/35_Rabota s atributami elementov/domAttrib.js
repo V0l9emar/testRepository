@@ -63,5 +63,22 @@ var title = document.querySelector(‘h1’);
 title.textContent; // “Title with info”
 title.textContent = ‘New text’;
 <h1>New text</h1>
+*/
+
+/*
+У тегов есть стандартные атрибуты. При превращении тега в узел DOM, атрибуты трансформируются в свойства узла (узел - это объект, у объекта есть методы и свойства). Это справедливо только для стандартных атрибутов
+Почти всегда атрибут тега соответствует свойству узла.
+
+<a href="address" id="info" class="link">Link</a>
+<img src="pic.gif" alt="text" />
+
+var link = document.querySelector(‘a’);
+link.href; // вернет полный url, а не только “address” - http://site.com/address
+link.className; // "link" - не просто class, а className
+link.id; // "info"
+
+var img = document.querySelector(‘img’);
+img.src; // вернет полный url, а не только “pic.gif” - http://site.com/pic.gif
+link.alt; // "text"
 
 */
