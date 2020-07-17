@@ -106,10 +106,10 @@ console.log(links);
 <li class=”new-item”>item 5</li>
 <li class=”new-item”>item 6</li>
 </ul>
-Вручную номер li не ставить оно должно подставляться в зависимости от кол-ва лишек в списке.
-/*let list = document.querySelector("ul");
+Вручную номер li не ставить оно должно подставляться в зависимости от кол-ва лишек в списке.*/
+//let list = document.querySelector("ul");
 // Текущее количество элементов в списке
-const currentCounts = list.children.length;
+/*const currentCounts = list.children.length;
 // Количество новых элементов
 const newLiCounts = 3;
 
@@ -118,26 +118,46 @@ for (let i = 0; i < newLiCounts; i++) {
   li.classList.add("new-item");
   li.textContent = `item ${currentCounts + i + 1}`;
   list.appendChild(li);
+}console.log(list)*/
+list = document.querySelector("ul");
+let current = list.children.length;
+let newLi = 2;
+for (i = 0; i < newLi; i++) {
+  let li = document.createElement("li");
+  li.classList.add(`new-item_${current + i + 1}`);
+  li.textContent = `item ${current + i + 1}`;
+  list.appendChild(li);
 }
+console.log(list);
 
-//!10. В каждую ссылку, которая находятся внутри списка ul  добавить по тегу strong (в каждую ссылку один - strong).
+/*//!10. В каждую ссылку, которая находятся внутри списка ul  добавить по тегу strong (в каждую ссылку один - strong).
 const [...newLinks] = document.querySelectorAll("ul a");
 newLinks.forEach((link) =>
   link.insertAdjacentHTML("beforeend", "<strong>Strong</strong>")
-);
+);*/
+const[...newLinks] = document.querySelectorAll('ul a');
+newLinks.forEach((link) => {
+  link.insertAdjacentHTML('beforeend', '<strong>Strong</strong>')
+})
 
-//!11. В начало документа (в начало body) добавить картинку img с атрибутами src и alt (текст придумайте сами). В src добавьте реальный url к картинке. Для создания элемента используйте метод createElement.
+/*//!11. В начало документа (в начало body) добавить картинку img с атрибутами src и alt (текст придумайте сами). В src добавьте реальный url к картинке. Для создания элемента используйте метод createElement.
 const img = document.createElement("img");
-img.setAttribute("src", "https://via.placeholder.com/150/92c952");
+img.setAttribute("src", "https://ttravel.az/wp-content/uploads/2018/03/architecture_Azerbaijan_building-300x300.jpg");
 img.setAttribute("alt", "some image");
-document.body.insertAdjacentElement("afterbegin", img);
+document.body.insertAdjacentElement("afterbegin", img);*/
+let img = document.createElement('img');
+img.setAttribute('src', 'https://ttravel.az/wp-content/uploads/2018/03/architecture_Azerbaijan_building-300x300.jpg');
+img.setAttribute('alt', 'HAC');
+document.body.insertAdjacentElement('afterbegin', img);
 
-//!12. Найти на странице элемент mark, добавить в конец содержимого текст “green” и на элемент установить класс green
+/*//!12. Найти на странице элемент mark, добавить в конец содержимого текст “green” и на элемент установить класс green
 const mark = document.querySelector("mark");
 mark.insertAdjacentText("beforeend", "green");
-mark.classList.add("green");
-
-//!13. Отсортировать li внутри списка в обратном порядке (по тексту внутри)
+mark.classList.add("green");*/
+let mark = document.querySelector('mark');
+mark.insertAdjacentText('beforeend', 'green');
+mark.classList.add('green')
+/*//!13. Отсортировать li внутри списка в обратном порядке (по тексту внутри)
 const newList = document.querySelector("ul");
 // Сортируем массив элементов по текстовому содержимому
 const listItems = [...newList.children].sort((prev, next) => {
@@ -148,3 +168,4 @@ list.innerHTML = "";
 // Генерируем новое содержимое из отсортированного массива элементов
 listItems.forEach((item) => list.appendChild(item));
 */
+
