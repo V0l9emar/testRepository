@@ -9,10 +9,21 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="styles.css">
     <title>Todo List</title>
   </head>
   <body>
-    <h1>39. Первый проект. Todo List.</h1>
+    <h1 style="text-align: center;">39. Первый проект. Todo List.</h1>
+    <nav class="header navbar navbar-dark bg-primary">
+      <a class="navbar-brand">Navbar</a>
+      <form class="form-inline">
+        <select class="form-control form-control-sm" id="themeSelect">
+          <option value="default">Theme Default</option>
+          <option value="light">Theme Light</option>
+          <option value="dark">Theme Dark</option>
+        </select>
+      </form>
+    </nav>
     <div class="form-section mt-5">
       <div class="container">
         <div class="row">
@@ -62,5 +73,6 @@
       </div>
     </div>
     <script src="toDo.js"></script>
+    <script src="localStorage.js"></script>
   </body>
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Css variables</title>
+    <style>
+      :root {
+        --box-bg: black;
+        --box-text-color: white;
+      }
+      body {
+        font: 1.4 Helvetica, Arial, sans-serif;
+        padding: 10px;
+      }
+      .box {
+        padding: 10px;
+        background: var(--box-bg);
+        height: 100px;
+      }
+      .box p {
+        color: var(--box-text-color);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>41. Как работать с css variables из javascript</h1>
+    <div class="box">
+      <p>
+        Why do we use it? It is a long established fact that a reader will be
+        distracted by the readable content of a page when looking at its layout.
+        The point of using Lorem Ipsum is that it has a more-or-less normal
+        distribution of letters, as opposed to using 'Content here, content
+        here'.
+      </p>
+    </div>
+    <script src="cssVar.js"></script>
+  </body>
+</html>
